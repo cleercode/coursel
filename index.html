@@ -7,22 +7,23 @@
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<script id="courseTemplate" type="text/x-jQuery-tmpl">
-			<li class="course">
-				<h2 class="number" contenteditable="true">${$item.numberHyphenated}</h2>
-				<h3><span class="units" contenteditable="true">${units}</span> units</h3>
-				<ul class="grades">
-					<li class="A">A</li>
-					<li class="B">B</li>
-					<li class="C">C</li>
-					<li class="D">D</li>
-					<li class="R">R</li>
-				</ul>
-			</li>
+		<script id="courseTemplate" type="text/template">
+			<h2 class="number" contenteditable="true"><%= number.join('-') %></h2>
+			<h3><span class="units" contenteditable="true"><%= units %></span> units</h3>
+			<ul class="grades">
+				<li class="A">A</li>
+				<li class="B">B</li>
+				<li class="C">C</li>
+				<li class="D">D</li>
+				<li class="R">R</li>
+			</ul>
 		</script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 		<script type="text/javascript" src="jquery.isotope.min.js"></script>
 		<script type="text/javascript" src="jquery.tmpl.min.js"></script>
+		<script type="text/javascript" src="underscore-min.js"></script>
+		<script type="text/javascript" src="backbone-min.js"></script>
+		<script type="text/javascript" src="backbone.localStorage-min.js"></script>
 		<script type="text/javascript" src="script.js"></script>
 		<link rel="stylesheet" media="all" href="style.css"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
