@@ -1,0 +1,157 @@
+/*	Resets */
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
+p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, 
+img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, hr, 
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, 
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figure, figcaption, hgroup, 
+menu, footer, header, nav, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+article, aside, canvas, figure, figure img, figcaption, hgroup,
+footer, header, nav, section, audio, video {
+	display: block;
+}
+
+a img {border: 0;}
+
+
+/* Selection colors */
+
+::selection 	 	{background: #f8dbdb;}
+::-moz-selection 	{background: #f8dbdb;}
+img::selection 		{background: transparent;}
+img::-moz-selection	{background: transparent;}
+body {-webkit-tap-highlight-color: #f8dbdb;}
+
+
+/* Main layout */
+
+body {
+  padding: 24px 0;
+	background: Cornsilk;
+	color: #444;
+	font: 16px/1.5 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+}
+
+h1 {
+	font-size: 42px;
+	line-height: 48px;
+	font-weight: normal;
+}
+
+h2 {
+	font-size: 42px;
+	line-height: 48px;
+}
+
+h3 {
+	font-size: 26px;
+	line-height: 36px;
+}
+
+a {
+  text-decoration: none;
+  color: FireBrick;
+}
+
+a:hover {
+  color: #bbb;
+}
+
+header {
+  margin: 0 0 24px 24px;
+}
+
+header a {
+  display: inline-block;
+  background: #bbb;
+  color: #fafafa;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 6px 12px;
+  margin: 12px 24px 0 0;
+}
+
+header a:hover {
+  background: FireBrick;
+  color: #fafafa;
+}
+
+ul#courses {
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+}
+
+ul#courses li.course {
+  overflow: hidden;
+  float: left;
+  margin: 24px;
+  background: #fafafa;
+  width: 194px;
+  height: 194px;
+  padding: 10px;
+  border: 5px solid #eee;
+  border-radius: 12px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+ul#courses li.course h2 {
+  color: FireBrick;
+  display: inline;
+}
+
+ul#courses li.course h3 {
+  font-weight: normal;
+}
+
+ul#courses li.course a.delete {
+  text-align: right;
+  display: block;
+  margin-top: 36px;
+	font-size: 13px;
+	line-height: 18px;
+}
+
+ul.grades {
+  list-style: none;
+  overflow: hidden;
+  margin-top: 24px;
+}
+
+ul.grades li {
+  float: left;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #aaa;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 6px;
+  margin-right: 6px;
+}
+
+ul.grades li:last-child {
+  margin-right: 0;
+}
+
+ul.grades li.selected {
+  background: #ddd;
+  font-weight: bold;
+}
+
+footer {
+  color: #aaa;
+	font-size: 13px;
+	line-height: 18px;
+  margin: 24px 0 0 24px;
+}
+
+footer a {
+  color: #ea9393;
+}
