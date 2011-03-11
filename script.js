@@ -47,6 +47,10 @@ $(function() {
 
     localStorage: new Store('courses'),
     
+    comparator: function(course) {
+      return course.get('number').join('');
+    },
+    
     qpa: function() {
       var units = 0;
       var qp = 0;
@@ -68,7 +72,8 @@ $(function() {
 
     events: {
       'blur .number': 'updateNumber',
-      'blur .units': 'updateUnits'
+      'blur .units': 'updateUnits',
+      'click .grades li': 'updateGrade'
     },
 
     initialize: function() {
@@ -76,7 +81,6 @@ $(function() {
       this.model.bind('change', this.render);
       this.model.view = this;
       
-      $(this.el).find('.grades li').live('click', this.updateGrade);
       $(this.el).find('number').focus();
     },
 
@@ -95,7 +99,7 @@ $(function() {
 
     },
 
-    updateGrade: function() {
+    updateGrade: function(g) {
       var grade = $(this).text(); 
       $(this).siblings().removeClass('selected');
       $(this).addClass('selected');
