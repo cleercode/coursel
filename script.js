@@ -168,6 +168,7 @@ $(function() {
         Courses.create(this.newAttributes());
         this.input.val('');
       }
+      return false;
     },
 
     createOnEnter: function(e) {
@@ -179,6 +180,7 @@ $(function() {
       _.each(Courses.every(), function(course){
         course.clear();
       });
+      return false;
     },
 
     updateQpa: function() {
