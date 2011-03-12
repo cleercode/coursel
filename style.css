@@ -40,10 +40,15 @@ body {
 }
 
 a {
+  color: #ea9393;
   text-decoration: none;
 }
 
-h1 {;
+a:hover {
+  color: #dc3c3e;
+}
+
+h1 {
 	font-size: 42px;
 	line-height: 48px;
 	font-weight: 500;
@@ -116,7 +121,8 @@ ul.grades {
   margin-top: 24px;
 }
 
-ul.grades li {
+ul.grades li a {
+  color: #444;
   float: left;
   width: 32px;
   height: 32px;
@@ -128,11 +134,11 @@ ul.grades li {
   border-radius: 6px;
 }
 
-ul.grades li:last-child {
+ul.grades li:last-child a {
   margin-right: 0;
 }
 
-ul.grades li.selected {
+ul.grades li.selected a {
   background: #ddd;
   border-color: #bbb;
   font-weight: 700;
@@ -144,10 +150,22 @@ footer {
   margin: 48px 0 0 24px;
 }
 
-footer a {
-  color: #ea9393;
+/* Isotope */
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+          transition-duration: 0.8s;
 }
 
-footer a:hover {
-  color: #dc3c3e;
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+          transition-property:         transform, opacity;
 }
