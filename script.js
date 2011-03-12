@@ -2,6 +2,12 @@ $(function() {
 
 
   window.Course = Backbone.Model.extend({
+    validate: function(attrs) {
+      if (attrs.name !== undefined && attrs.name.length == 0) {
+        return 'Course name should not be blank.';
+      }
+    },
+    
     clear: function() {
       this.destroy();
       this.view.remove();
@@ -15,7 +21,6 @@ $(function() {
         case 3: return 'B'; break;
         case 4: return 'A'; break;
       };
-      return null;
     },
 
     qp: function() {
@@ -30,7 +35,6 @@ $(function() {
     localStorage: new Store('courses'),
 
     comparator: function(course) {
-      console.log(course);
       return course.get('name');
     },
 
@@ -85,7 +89,7 @@ $(function() {
     },
 
     updateUnits: function(e) {
-      var new_units = parseInt($(e.target).text(), 10);
+      var new_units = parseInt($(e.target).text());
       this.model.save({units: new_units});
     },
 
@@ -99,7 +103,6 @@ $(function() {
           case 'B': return 3; break;
           case 'A': return 4; break;
         }
-        return null;
         }($grade.text());
         $grade.siblings().removeClass('selected');
         $grade.addClass('selected');
