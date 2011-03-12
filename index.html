@@ -7,17 +7,6 @@
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<script id="courseTemplate" type="text/template">
-			<h2 class="number" contenteditable="true"><%= number.join('-') %></h2>
-			<h3><span class="units" contenteditable="true"><%= units %></span> units</h3>
-			<ul class="grades">
-				<li class="A">A</li>
-				<li class="B">B</li>
-				<li class="C">C</li>
-				<li class="D">D</li>
-				<li class="R">R</li>
-			</ul>
-		</script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 		<script type="text/javascript" src="jquery.isotope.min.js"></script>
 		<script type="text/javascript" src="jquery.tmpl.min.js"></script>
@@ -46,6 +35,18 @@
 			<p>Your courses will be saved for when you come back.</p>
 			<p>Built by <a href="http://chrsl.net/">Chris Lee</a>.</p>
 		</footer>
+		
+		<script id="courseTemplate" type="text/template">
+			<h2 class="number" contenteditable="true"><%= number.join('-') %></h2>
+			<h3><span class="units" contenteditable="true"><%= units %></span> units</h3>
+			<ul class="grades">
+				<li class="A">A</li>
+				<li class="B">B</li>
+				<li class="C">C</li>
+				<li class="D">D</li>
+				<li class="R">R</li>
+			</ul>
+		</script>
 		
 	</body>
 	

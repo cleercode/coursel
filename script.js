@@ -2,23 +2,25 @@ $(function() {
   
   
   window.Course = Backbone.Model.extend({
-    initialize: function() {
-      this.set({
-        number: ['xx', 'xxx'],
-        units: 9,
-        grade: 4
-      });
+    initialize: function() {      
+      if (this.isNew()) {
+        this.set({
+          number: ['xx', 'xxx'],
+          units: 9,
+          grade: 4
+        }); 
+      }
     },
     
-    validate: function(attrs) {
-      if (attrs.number.length != 2 || attrs.number[0].length != 2
-          || attrs.number[1].length != 3) {
-        return 'Invalid course number.';
-      }
-      if (attrs.units > 99) {
-        return 'Too many units';
-      }
-    },
+    // validate: function(attrs) {
+    //   if (attrs.number.length != 2 || attrs.number[0].length != 2
+    //       || attrs.number[1].length != 3) {
+    //     return 'Invalid course number.';
+    //   }
+    //   if (attrs.units > 99) {
+    //     return 'Too many units';
+    //   }
+    // },
 
     clear: function() {
       this.destroy();
@@ -26,7 +28,7 @@ $(function() {
     },
     
     gradeString: function() {
-      switch(this.grade) {
+      switch(this.get('grade')) {
         case 0: return 'R'; break;
         case 1: return 'D'; break;
         case 2: return 'C'; break;
@@ -80,30 +82,27 @@ $(function() {
       _.bindAll(this, 'render');
       this.model.bind('change', this.render);
       this.model.view = this;
-      
-      $(this.el).find('number').focus();
     },
 
     render: function() {
       $(this.el).html(this.template(this.model.toJSON()));
+      $(this.el).find('.grades li.' + this.model.gradeString()).addClass('selected');
       return this;
     },
 
-    updateNumber: function() {
-      var number = $(this.el).find('.number').text().split('-');
-      this.model.save({number: number});
-      console.log(this.model.get('number'));
+    updateNumber: function(e) {
+      var new_number = $(e.target).text().split('-');
+      this.model.save({number: new_number});
     },
 
-    updateUnits: function() {
-
+    updateUnits: function(e) {
+      var new_units = parseInt($(e.target).text(), 10);
+      this.model.save({units: new_units});
     },
 
-    updateGrade: function(g) {
-      var grade = $(this).text(); 
-      $(this).siblings().removeClass('selected');
-      $(this).addClass('selected');
-      course.grade = function(g) {
+    updateGrade: function(e) {
+      $grade = $(e.target);
+      var new_grade = function(g) {
         switch(g) {
           case 'R': return 0; break;
           case 'D': return 1; break;
@@ -112,8 +111,10 @@ $(function() {
           case 'A': return 4; break;
         }
         return null;
-      }(new_grade);
-      console.log(this);
+      }($grade.text());
+      $grade.siblings().removeClass('selected');
+      $grade.addClass('selected');
+      this.model.save({grade: new_grade});
     },
 
     remove: function() {
@@ -146,12 +147,14 @@ $(function() {
 
     createCourse: function() {
       Courses.create({});
+      return false;
     },
 
     reset: function() {
       Courses.each(function(course) {
         course.clear();
       });
+      return false;
     },
     
     updateQpa: function() {
