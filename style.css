@@ -48,6 +48,21 @@ a:hover {
   color: #dc3c3e;
 }
 
+a.button {
+  display: inline-block;
+  background: #bbb;
+  color: #fafafa;
+  font-weight: 700;
+  padding: 3px 6px;
+  margin-bottom: 6px;
+  border-radius: 3px;
+}
+
+a.button:hover {
+  background: #dc3c3e;
+  color: #fafafa;
+}
+
 h1 {
 	font-size: 42px;
 	line-height: 48px;
@@ -58,20 +73,27 @@ header {
   margin: 0 0 24px 24px;
 }
 
-header a {
-  display: inline-block;
-  background: #bbb;
-  color: #fafafa;
-  font-size: 24px;
+header input {
+  float: left;
+  border: none;
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #444;
+	font: 36px/1 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	width: 120px;
   font-weight: 700;
-  padding: 6px 12px;
-  margin: 12px 24px 0 0;
+  padding: 4px 12px;
+  margin: 12px 12px 0 0;
   border-radius: 6px;
 }
 
-header a:hover {
-  background: #dc3c3e;
-  color: #fafafa;
+header a.button {
+  float: left;
+  font-size: 24px;
+  line-height: 42px;
+  padding: 6px 12px;
+  margin-top: 12px;
+  border-radius: 6px;
 }
 
 ul#courses {

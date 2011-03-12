@@ -2,26 +2,6 @@ $(function() {
 
 
   window.Course = Backbone.Model.extend({
-    initialize: function() {      
-      if (this.isNew()) {
-        this.set({
-          number: ['xx', 'xxx'],
-          units: 9,
-          grade: 4
-        }); 
-      }
-    },
-  
-    // validate: function(attrs) {
-    //   if (attrs.number.length != 2 || attrs.number[0].length != 2
-    //       || attrs.number[1].length != 3) {
-    //     return 'Invalid course number.';
-    //   }
-    //   if (attrs.units > 99) {
-    //     return 'Too many units';
-    //   }
-    // },
-
     clear: function() {
       this.destroy();
       this.view.remove();
@@ -50,7 +30,8 @@ $(function() {
     localStorage: new Store('courses'),
 
     comparator: function(course) {
-      return course.get('number').join('');
+      console.log(course);
+      return course.get('name');
     },
 
     every: function() {
@@ -79,7 +60,7 @@ $(function() {
     template: _.template($('#courseTemplate').html()),
 
     events: {
-      'blur .number': 'updateNumber',
+      'blur .name': 'updateName',
       'blur .units': 'updateUnits',
       'click .grades li a': 'updateGrade',
       'click .delete': 'clear'
@@ -97,10 +78,10 @@ $(function() {
       return this;
     },
 
-    updateNumber: function(e) {
-      var new_number = $(e.target).text().split('-');
-      this.model.save({number: new_number});
-      $('#courses').isotope('updateSortData', $(this.el)).isotope({sortBy: 'number'});
+    updateName: function(e) {
+      var new_name = $(e.target).text();
+      this.model.save({name: new_name});
+      $('#courses').isotope('updateSortData', $(this.el)).isotope({sortBy: 'name'});
     },
 
     updateUnits: function(e) {
@@ -141,6 +122,7 @@ $(function() {
       el: $('body'),
 
       events: {
+        'keypress #course_input': 'createOnEnter',
         'click #add_course': 'createCourse',
         'click #reset': 'reset'
       },
@@ -152,15 +134,17 @@ $(function() {
             columnWidth: 270
           },
           getSortData: {
-            number: function($elem) {
-              return $elem.find('.number').text();
+            name: function($elem) {
+              return $elem.find('.name').text();
             }
           },
-          sortBy: 'number'
+          sortBy: 'name'
         });
 
-
         _.bindAll(this, 'addOne', 'addAll', 'render');
+
+        this.input = this.$('#course_input').focus();
+
         Courses.bind('add', this.addOne);
         Courses.bind('refresh', this.addAll);
         Courses.bind('all', this.updateQpa);
@@ -168,16 +152,28 @@ $(function() {
         Courses.fetch();
       },
 
+      newAttributes: function() {
+        return {
+          name: this.input.val(),
+          units: 9,
+          grade: 4
+        };
+      },
+
       createCourse: function() {
-        Courses.create({});
-        return false;
+        Courses.create(this.newAttributes());
+        this.input.val('');
+      },
+
+      createOnEnter: function(e) {
+        if (e.keyCode != 13) return;
+        this.createCourse();
       },
 
       reset: function() {
         _.each(Courses.every(), function(course){
           course.clear();
         });
-        return false;
       },
 
       updateQpa: function() {
