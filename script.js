@@ -178,7 +178,7 @@ $(function() {
 
       updateQpa: function() {
 
-        var message = (!Courses.isEmpty()) ? 'Your QPA is ' + this.qpa() : 'Add a course below!';
+        var message = (!Courses.isEmpty()) ? 'Your QPA is ' + this.qpa() : 'Go on, add a course!';
         $('#qpa').text(message);
       },
 
