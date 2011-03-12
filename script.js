@@ -103,98 +103,99 @@ $(function() {
           case 'B': return 3; break;
           case 'A': return 4; break;
         }
-        }($grade.text());
-        $grade.siblings().removeClass('selected');
-        $grade.addClass('selected');
-        this.model.save({grade: new_grade});
-      },
+      }($grade.text());
+      $grade.siblings().removeClass('selected');
+      $grade.addClass('selected');
+      this.model.save({grade: new_grade});
+    },
 
-      remove: function() {
-        $(this.el).fadeOut('fast', function() {
-          $('#courses').isotope('remove', $(this)).isotope('reLayout');
-        });
-      },
+    remove: function() {
+      $(this.el).fadeOut('fast', function() {
+        $('#courses').isotope('remove', $(this)).isotope('reLayout');
+      });
+    },
 
-      clear: function() {
-        this.model.clear();
-      }
-    });
+    clear: function() {
+      this.model.clear();
+    }
+  });
 
 
-    window.AppView = Backbone.View.extend({
-      el: $('body'),
+  window.AppView = Backbone.View.extend({
+    el: $('body'),
 
-      events: {
-        'keypress #course_input': 'createOnEnter',
-        'click #add_course': 'createCourse',
-        'click #reset': 'reset'
-      },
+    events: {
+      'keypress #course_input': 'createOnEnter',
+      'click #add_course': 'createCourse',
+      'click #reset': 'reset'
+    },
 
-      initialize: function() {
-        $('#courses').isotope({
-          itemSelector: '.course',
-          masonry: {
-            columnWidth: 270
-          },
-          getSortData: {
-            name: function($elem) {
-              return $elem.find('.name').text();
-            }
-          },
-          sortBy: 'name'
-        });
+    initialize: function() {
+      $('#courses').isotope({
+        itemSelector: '.course',
+        masonry: {
+          columnWidth: 270
+        },
+        getSortData: {
+          name: function($elem) {
+            return $elem.find('.name').text();
+          }
+        },
+        sortBy: 'name'
+      });
 
-        _.bindAll(this, 'addOne', 'addAll', 'render');
+      _.bindAll(this, 'addOne', 'addAll', 'render');
 
-        this.input = this.$('#course_input').focus();
+      this.input = this.$('#course_input').focus();
 
-        Courses.bind('add', this.addOne);
-        Courses.bind('refresh', this.addAll);
-        Courses.bind('all', this.updateQpa);
+      Courses.bind('add', this.addOne);
+      Courses.bind('refresh', this.addAll);
+      Courses.bind('all', this.updateQpa);
 
-        Courses.fetch();
-      },
+      Courses.fetch();
+    },
 
-      newAttributes: function() {
-        return {
-          name: this.input.val(),
-          units: 9,
-          grade: 4
-        };
-      },
+    newAttributes: function() {
+      return {
+        name: this.input.val(),
+        units: 9,
+        grade: 4
+      };
+    },
 
-      createCourse: function() {
+    createCourse: function() {
+      if (this.input.val() != '') {
         Courses.create(this.newAttributes());
         this.input.val('');
-      },
-
-      createOnEnter: function(e) {
-        if (e.keyCode != 13) return;
-        this.createCourse();
-      },
-
-      reset: function() {
-        _.each(Courses.every(), function(course){
-          course.clear();
-        });
-      },
-
-      updateQpa: function() {
-
-        var message = (!Courses.isEmpty()) ? 'Your QPA is ' + this.qpa() : 'Go on, add a course!';
-        $('#qpa').text(message);
-      },
-
-      addOne: function(course) {
-        var view = new CourseView({model: course});
-        $('#courses').isotope('insert', $(view.render().el));
-      },
-
-      addAll: function() {
-        Courses.each(this.addOne);
       }
-    });
-    window.App = new AppView;
+    },
 
+    createOnEnter: function(e) {
+      if (e.keyCode != 13) return;
+      this.createCourse();
+    },
 
+    reset: function() {
+      _.each(Courses.every(), function(course){
+        course.clear();
+      });
+    },
+
+    updateQpa: function() {
+      var message = (!Courses.isEmpty()) ? 'Your QPA is ' + this.qpa() : 'Go on, add a course!';
+      $('#qpa').text(message);
+    },
+
+    addOne: function(course) {
+      var view = new CourseView({model: course});
+      $('#courses').isotope('insert', $(view.render().el));
+    },
+
+    addAll: function() {
+      Courses.each(this.addOne);
+    }
   });
+  window.App = new AppView;
+
+
+});
