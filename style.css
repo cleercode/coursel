@@ -32,36 +32,21 @@ body {-webkit-tap-highlight-color: #f8dbdb;}
 /* Main layout */
 
 body {
-  padding: 24px 0;
-	background: Cornsilk;
+  padding: 72px 0;
+	background: #fafafa;
 	color: #444;
 	font: 16px/1.5 'Helvetica Neue', Arial, Helvetica, sans-serif;
 	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
 }
 
-h1 {
-	font-size: 42px;
-	line-height: 48px;
-	font-weight: normal;
-}
-
-h2 {
-	font-size: 42px;
-	line-height: 48px;
-}
-
-h3 {
-	font-size: 26px;
-	line-height: 36px;
-}
-
 a {
   text-decoration: none;
-  color: FireBrick;
 }
 
-a:hover {
-  color: #bbb;
+h1 {;
+	font-size: 42px;
+	line-height: 48px;
+	font-weight: 500;
 }
 
 header {
@@ -73,13 +58,14 @@ header a {
   background: #bbb;
   color: #fafafa;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 700;
   padding: 6px 12px;
   margin: 12px 24px 0 0;
+  border-radius: 6px;
 }
 
 header a:hover {
-  background: FireBrick;
+  background: #dc3c3e;
   color: #fafafa;
 }
 
@@ -93,22 +79,27 @@ ul#courses li.course {
   overflow: hidden;
   float: left;
   margin: 24px;
-  background: #fafafa;
+  background: #fff;
   width: 194px;
   height: 194px;
   padding: 10px;
-  border: 5px solid #eee;
+  border: 4px solid #eee;
   border-radius: 12px;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
 }
 
 ul#courses li.course h2 {
-  color: FireBrick;
+  font-size: 42px;
+  line-height: 48px;
+  font-weight: 700;
+  color: #dc3c3e;
   display: inline;
 }
 
 ul#courses li.course h3 {
-  font-weight: normal;
+	font-size: 26px;
+	line-height: 36px;
+  font-weight: 500;
 }
 
 ul#courses li.course a.delete {
@@ -129,11 +120,12 @@ ul.grades li {
   float: left;
   width: 32px;
   height: 32px;
-  border: 1px solid #aaa;
+  background: #efefef;
+  border: 1px solid #ccc;
   line-height: 32px;
   text-align: center;
-  border-radius: 6px;
   margin-right: 6px;
+  border-radius: 6px;
 }
 
 ul.grades li:last-child {
@@ -142,16 +134,20 @@ ul.grades li:last-child {
 
 ul.grades li.selected {
   background: #ddd;
-  font-weight: bold;
+  border-color: #bbb;
+  font-weight: 700;
 }
 
 footer {
   color: #aaa;
-	font-size: 13px;
-	line-height: 18px;
-  margin: 24px 0 0 24px;
+	font-size: 12px;
+  margin: 48px 0 0 24px;
 }
 
 footer a {
   color: #ea9393;
+}
+
+footer a:hover {
+  color: #dc3c3e;
 }
