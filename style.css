@@ -31,6 +31,10 @@ body {-webkit-tap-highlight-color: #f8dbdb;}
 
 /* Main layout */
 
+html {
+  min-height: 100%;
+}
+
 body {
   padding: 72px 0;
 	background: #fafafa;

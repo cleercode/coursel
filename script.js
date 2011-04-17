@@ -163,24 +163,25 @@ $(function() {
       };
     },
 
-    createCourse: function() {
+    createCourse: function(e) {
       if (this.input.val() != '') {
         Courses.create(this.newAttributes());
         this.input.val('');
       }
-      return false;
+      e.preventDefault();
     },
 
     createOnEnter: function(e) {
-      if (e.keyCode != 13) return;
-      this.createCourse();
+      if (e.keyCode == 13) {
+        this.createCourse(e);
+      }
     },
 
-    reset: function() {
+    reset: function(e) {
       _.each(Courses.every(), function(course){
         course.clear();
       });
-      return false;
+      e.preventDefault();
     },
 
     updateQpa: function() {
