@@ -39,7 +39,7 @@ $(function() {
     },
 
     every: function() {
-      return this.filter(function(todo){
+      return this.filter(function(course){
         return true;
       });
     },
@@ -94,16 +94,16 @@ $(function() {
     },
 
     updateGrade: function(e) {
-      $grade = $(e.target);
-      var new_grade = function(g) {
-        switch(g) {
+      var $grade = $(e.target);
+      var new_grade = function() {
+        switch($grade.text()) {
           case 'R': return 0; break;
           case 'D': return 1; break;
           case 'C': return 2; break;
           case 'B': return 3; break;
           case 'A': return 4; break;
         }
-      }($grade.text());
+      }();
       $grade.siblings().removeClass('selected');
       $grade.addClass('selected');
       this.model.save({grade: new_grade});
