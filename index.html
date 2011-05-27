@@ -1,63 +1,27 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="Coursel is a simple grade calculator for CMU students.">
+  <title>Coursel</title>
+  <link rel="stylesheet" href="web/css/main.css" type="text/css" media="screen">
+  <script src="web/js/app.js"></script>
+  <script type="text/javascript"> 
 
-	<head>
-		<meta charset="utf-8"/>
-		<meta name="description" content="Coursel is a simple grade calculator for CMU students.">
-		<title>Coursel</title>
-		<link rel="stylesheet" media="all" href="style.min.css"/>
-		<!--[if lt IE 9]>
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-		<script type="text/javascript" src="script.min.js"></script>
-		<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-19583432-4']);
+    _gaq.push(['_trackPageview']);
 
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-19583432-4']);
-		  _gaq.push(['_setCookiePath', '/coursel/']);
-		  _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
 
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-
-		</script>
-	</head>
-	
-	<body lang="en">
-		
-		<header>
-			<h1 id="qpa">Go on, add a course!</h1>
-			<input type="text" id="course_input" placeholder="15-251">
-			<a href="#" id="add_course" class="button">Add Course</a>
-		</header>
-		
-		<ul id="courses">
-		</ul>
-		
-		<footer>
-			<a href="#" id="reset" class="button">Reset</a>
-			<p>Coursel is a simple grade calculator for <a href="http://cmu.edu">CMU</a> students.</p>
-			<p>Your courses will be saved for when you come back.</p>
-			<p>Built by <a href="http://chrsl.net/">Chris Lee</a>.</p>
-		</footer>
-		
-		<script id="courseTemplate" type="text/template">
-			<h2 class="name" contenteditable="true"><%= name %></h2>
-			<h3><span class="units" contenteditable="true"><%= units %></span> units</h3>
-			<ul class="grades">
-				<li class="A"><a href="#">A</a></li>
-				<li class="B"><a href="#">B</a></li>
-				<li class="C"><a href="#">C</a></li>
-				<li class="D"><a href="#">D</a></li>
-				<li class="R"><a href="#">R</a></li>
-			</ul>
-			<a href="#" class="delete">Delete</a>
-		</script>
-		
-	</body>
-	
+  </script>
+  <script>require('main');</script>
+</head>
+<body>
+</body>
 </html>
