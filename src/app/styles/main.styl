@@ -1,0 +1,135 @@
+@import 'isotope'
+@import 'nib'
+  
+light-red = #ea9393
+red = #dc3c3e
+black = #444
+light-gray = #eee
+gray = #bbb
+white = #fff
+whitish = #fafafa
+
+/* Main layout */
+
+global-reset()
+
+html
+  min-height 100%
+
+body
+  padding 72px 0
+  background whitish
+  color black
+  font 16px/1.5 'Helvetica Neue', Arial, Helvetica, sans-serif
+
+a
+  color light-red
+  text-decoration none
+  &:hover
+    color red
+  &.button
+    display inline-block
+    background gray
+    color whitish
+    font-weight 700
+    padding 3px 6px
+    margin-bottom 6px
+    border-radius 3px
+    &:hover
+      background red
+      color whitish
+
+h1
+  font-size 42px
+  line-height 48px
+  font-weight 500
+
+header
+  margin 0 0 24px 24px
+  input
+    float left
+    border none
+    background white
+    border 1px solid #ddd
+    color #444
+    font 36px/1 'Helvetica Neue', Arial, Helvetica, sans-serif
+    width 120px
+    font-weight 700
+    padding 4px 12px
+    margin 12px 12px 0 0
+    border-radius 6px
+  a.button
+    float left
+    font-size 24px
+    line-height 42px
+    padding 6px 12px
+    margin-top 12px
+    border-radius 6px
+
+ul#courses
+  list-style none
+  overflow hidden
+  width 100%
+  li.course
+    overflow hidden
+    float left
+    margin 24px
+    background white
+    width 194px
+    height 194px
+    padding 10px
+    border 4px solid light-gray
+    border-radius 12px
+    box-shadow 0 2px 3px 0 rgba(0, 0, 0, 0.2)
+    h2
+      font-size 42px
+      line-height 48px
+      font-weight 700
+      color red
+      display inline
+    h3
+      font-size 26px
+      line-height 36px
+      font-weight 500
+    a.delete
+      position absolute
+      bottom 10px
+      right 10px
+      font-size 13px
+      line-height 18px
+    a.info
+      background url(../images/info.png)
+      text-indent -9999px
+      width 17px
+      height 17px
+      position absolute
+      bottom 10px
+      left 10px
+      &:hover
+        background-position 17px
+    ul.grades
+      list-style none
+      overflow hidden
+      margin-top 24px
+      li a
+        color #444
+        float left
+        width 32px
+        height 32px
+        background #efefef
+        border 1px solid #ccc
+        line-height 32px
+        text-align center
+        margin-right 6px
+        border-radius 6px
+      li:last-child a
+        margin-right 0
+      li.selected a
+        background #ddd
+        border-color #bbb
+        font-weight 700
+
+footer
+  color #aaa
+  font-size 12px
+  margin 48px 0 0 24px

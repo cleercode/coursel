@@ -1,0 +1,11 @@
+<h2 class="name" contenteditable="true"><%= @course.name %></h2>
+<h3><span class="units" contenteditable="true"><%= @course.units %></span> units</h3>
+<ul class="grades">
+  <li class="A"><a href="#">A</a></li>
+  <li class="B"><a href="#">B</a></li>
+  <li class="C"><a href="#">C</a></li>
+  <li class="D"><a href="#">D</a></li>
+  <li class="R"><a href="#">R</a></li>
+</ul>
+<a href="#" class="delete">Delete</a>
+<a href="#" class="info">Info</a>

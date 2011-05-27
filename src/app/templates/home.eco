@@ -1,0 +1,15 @@
+<header>
+  <h1 id="qpa">Go on, add a course!</h1>
+  <input type="text" id="course_input" placeholder="15-251">
+  <a href="#" id="add_course" class="button">Add Course</a>
+</header>
+
+<ul id="courses">
+</ul>
+
+<footer>
+  <a href="#" id="reset" class="button">Reset</a>
+  <p>Coursel is a simple grade calculator for <a href="http://cmu.edu">CMU</a> students.</p>
+  <p>Your courses will be saved for when you come back.</p>
+  <p>Built by <a href="http://chrsl.net/">Chris Lee</a>.</p>
+</footer>
